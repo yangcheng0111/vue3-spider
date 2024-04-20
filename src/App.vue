@@ -1,9 +1,14 @@
+<script setup>
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+</script>
+
 <template>
-  <div>你好1111111111111111111111111111111111111111111111111</div>
   <div>
-    11111111111111 11111111111111111111111111111111
-    11111111111111111111111111111111 111111111111111111111111111111111111111
+    <!-- elment-plus 国际化 设置为中文模式 -->
+    <el-config-provider :locale="zhCn">
+      <router-view> </router-view>
+    </el-config-provider>
   </div>
 </template>
 
-<script></script>
+<style scoped></style>
