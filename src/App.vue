@@ -11,4 +11,3 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
   </div>
 </template>
 
-<style scoped></style>

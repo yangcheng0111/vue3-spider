@@ -30,7 +30,7 @@ instance.interceptors.response.use(
   (res) => {
     // TODO 3. 处理业务失败
     // TODO 4. 摘取核心响应数据
-    if (res.data.code === 0) {
+    if (res.data.code === 1) {
       return res
     }
     // 业务失败，给错误提示，抛出错误

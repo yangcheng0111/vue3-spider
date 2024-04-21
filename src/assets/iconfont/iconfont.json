@@ -1,0 +1,30 @@
+{
+  "id": "4517151",
+  "name": "vue-spider",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8289033",
+      "name": "星星",
+      "font_class": "xingxing",
+      "unicode": "e870",
+      "unicode_decimal": 59504
+    },
+    {
+      "icon_id": "37564057",
+      "name": "爬虫",
+      "font_class": "pachong1",
+      "unicode": "e76c",
+      "unicode_decimal": 59244
+    },
+    {
+      "icon_id": "10188488",
+      "name": "爬虫",
+      "font_class": "pachong",
+      "unicode": "e704",
+      "unicode_decimal": 59140
+    }
+  ]
+}
