@@ -36,4 +36,7 @@ const handleSelect = (key, keyPath) => {
   justify-content: flex-end;
   height: 40px;
 }
+.el-menu--horizontal.el-menu{
+  border-bottom: 0;
+}
 </style>
