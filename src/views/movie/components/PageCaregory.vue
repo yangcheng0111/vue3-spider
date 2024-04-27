@@ -35,39 +35,23 @@ const clickNavClind = (nav, navname) => {
     <div class="wrapper">
       <div class="nav">
         <div class="category" @click="clickNav('category')">
-          <p :class="{ active: Nav.category }">
-            {{ NavName.category
-            }}<i
-              class="iconfont"
-              :class="{
-                'icon-shangla': Nav.category,
-                'icon-xiala': !Nav.category
-              }"
-            ></i>
+          <p
+            :class="{
+              active: Nav.category,
+              navNameChang: NavName.category !== '类型'
+            }"
+          >
+            {{ NavName.category }}<i class="iconfont icon-xiala"></i>
           </p>
         </div>
         <div class="country" @click="clickNav('country')">
           <p :class="{ active: Nav.country }">
-            {{ NavName.country
-            }}<i
-              class="iconfont"
-              :class="{
-                'icon-shangla': Nav.country,
-                'icon-xiala': !Nav.country
-              }"
-            ></i>
+            {{ NavName.country }}<i class="iconfont icon-xiala"></i>
           </p>
         </div>
         <div class="year" @click="clickNav('year')">
           <p :class="{ active: Nav.year }">
-            {{ NavName.year
-            }}<i
-              class="iconfont"
-              :class="{
-                'icon-shangla': Nav.year,
-                'icon-xiala': !Nav.year
-              }"
-            ></i>
+            {{ NavName.year }}<i class="iconfont icon-xiala"></i>
           </p>
         </div>
       </div>
@@ -75,37 +59,19 @@ const clickNavClind = (nav, navname) => {
       <div class="bd">
         <ul v-show="Nav.category">
           <li @click="clickNavClind('category', '类型')">全部</li>
-
           <li
-            v-for="item in 10"
+            v-for="item in 100"
             :key="item"
             @click="clickNavClind('category', item)"
+            :class="{ active: NavName.category === item }"
           >
             {{ item }}
           </li>
         </ul>
         <ul v-show="Nav.country">
-          <li>2</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
           <li>10</li>
         </ul>
         <ul v-show="Nav.year">
-          <li>3</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li>6</li>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
           <li>10</li>
         </ul>
       </div>
@@ -122,40 +88,59 @@ h4 {
   gap: 30px;
 }
 p {
+  cursor: pointer;
   height: 30px;
   line-height: 30px;
   padding: 0 5px;
 }
-
+p.active,
 p:hover {
   background-color: rgb(240, 243, 245);
 }
-p.active {
-  background-color: rgb(240, 243, 245);
+p.navNameChang {
+  color: rgb(34, 119, 170);
 }
-p i {
+
+p .iconfont {
+  display: inline-block;
+
   margin-left: 10px;
   font-size: 10px;
-  transition: all 2s;
+  transition: all 0.3s;
+}
+p.active .iconfont {
+  transform: rotate(-180deg);
 }
 
 /* 类型选项部分 */
 .bd {
-  width: 100%;
+  position: relative;
 }
 
 .bd ul {
+  width: 100%;
+
+  position: absolute;
   padding: 30px;
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+
+  z-index: 999;
+
   background-color: rgb(240, 243, 245);
 }
 .bd ul li {
+  cursor: pointer;
   background-color: white;
   color: black;
   height: 30px;
   padding: 0 20px;
   line-height: 30px;
+}
+.bd ul li.active,
+.bd ul li:hover {
+  background-color: rgb(34, 119, 170);
+  color: white;
 }
 </style>

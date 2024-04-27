@@ -1,7 +1,16 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const activeIndex = ref('/index')
+
+// 刷新页面检测路由选中项目
+const updateRoute = () => {
+  const router = useRouter()
+  activeIndex.value = router.currentRoute._value.fullPath
+}
+updateRoute()
+
 const handleSelect = (key) => {
   activeIndex.value = key
 }
@@ -13,7 +22,6 @@ const handleSelect = (key) => {
         :default-active="activeIndex"
         class="el-menu-demo"
         mode="horizontal"
-        :ellipsis="false"
         @select="handleSelect"
         router="true"
       >
@@ -24,7 +32,7 @@ const handleSelect = (key) => {
 
         <el-menu-item index="/index">首页</el-menu-item>
         <el-menu-item index="/movie/page">电影</el-menu-item>
-        <el-menu-item index="#">书籍</el-menu-item>
+        <el-menu-item index="/book/page">书籍</el-menu-item>
       </el-menu>
     </div>
   </div>
