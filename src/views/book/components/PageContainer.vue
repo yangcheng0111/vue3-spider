@@ -5,7 +5,7 @@ import Star from '@/components/Star.vue'
 const count = ref(0)
 const load = () => {
   count.value += 1
-  if (count.value === 1) {
+  if (count.value === 20) {
     loading.value = false
   }
 }

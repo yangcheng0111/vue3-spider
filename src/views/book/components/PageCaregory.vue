@@ -1,5 +1,15 @@
 <script setup>
-const arr = [
+import { ref } from 'vue'
+
+const arr = ref([
+  '文学文学文学文学文学',
+  '历史',
+  '历史',
+  '历史',
+  '历史',
+  '历史',
+  '历史',
+  '历史',
   '文学',
   '历史',
   '历史',
@@ -8,7 +18,15 @@ const arr = [
   '历史',
   '历史',
   '历史',
+  '文学',
   '历史',
+  '历史',
+  '历史',
+  '历史',
+  '历史',
+  '历史',
+  '历史',
+  '文学',
   '历史',
   '历史',
   '历史',
@@ -16,7 +34,7 @@ const arr = [
   '历史',
   '历史',
   '历史'
-]
+])
 const handleSelect = (index) => {
   console.log(index)
 }
@@ -25,28 +43,14 @@ const handleSelect = (index) => {
 <template>
   <div class="header">
     <el-menu class="el-menu-demo" mode="horizontal" @select="handleSelect">
-      <el-menu-item
-        v-for="(item, index) in arr.splice(0, 9)"
-        :key="item"
-        :index="index"
-        >{{ item }}</el-menu-item
-      >
-      <el-sub-menu index="2">
-        <template #title>Workspace</template>
-        <el-menu-item v-for="item in 60" :key="item" :index="item + 1"
-          >item one</el-menu-item
-        >
-      </el-sub-menu>
+      <el-menu-item v-for="(item, index) in arr" :key="item" :index="index">{{
+        item
+      }}</el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <style scoped>
-/* 查看更多的位置 */
-li.el-sub-menu {
-  margin-left: auto;
-}
-
 .header {
   margin-bottom: 30px;
 }
