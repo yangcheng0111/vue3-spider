@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import PageCaregory from './components/PageCaregory.vue'
-import PageContainer from './components/PageContainer.vue'
+import PageCaregory from './PageComponents/PageCaregory.vue'
+import PageContainer from './PageComponents/PageContainer.vue'
 
 const currentPage4 = ref(4)
 

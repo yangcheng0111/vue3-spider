@@ -24,6 +24,11 @@ const props = defineProps({
 </template>
 
 <style scoped>
+.imagelist h4 {
+  margin: 24px 0 12px;
+  color: green;
+}
+
 .imagelist ul {
   display: flex;
   justify-content: space-between;

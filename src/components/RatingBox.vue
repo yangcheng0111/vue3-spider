@@ -1,12 +1,20 @@
 <script setup>
 import Star from '@/components/Star.vue'
+const props = defineProps({
+  score: { type: Number },
+  commentsNum: { type: Number },
+  title: { type: String }
+})
 </script>
 <template>
   <div class="ratingBox">
-    <h4 class="small">电影评分</h4>
+    <h4 class="small">{{ props.title }}评分</h4>
     <p>8.0</p>
-    <Star score="8"></Star>
-    <span><i>1992123</i>评分</span>
+    <Star :score="props.score"></Star>
+    <span
+      ><i>{{ props.commentsNum }}</i
+      >评分</span
+    >
   </div>
 </template>
 <style scoped>

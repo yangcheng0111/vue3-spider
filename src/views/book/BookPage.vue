@@ -1,7 +1,7 @@
 <script setup>
-import PageCaregory from './components/PageCaregory.vue'
-import PageContainer from './components/PageContainer.vue'
-import Aside from './components/Aside.vue'
+import PageCaregory from './PageComponents/PageCaregory.vue'
+import PageContainer from './PageComponents/PageContainer.vue'
+import Aside from '@/components/Aside.vue'
 
 // import { ref } from 'vue'
 </script>
@@ -15,7 +15,7 @@ import Aside from './components/Aside.vue'
     </div>
 
     <div class="right">
-      <Aside></Aside>
+      <Aside title="书籍"></Aside>
     </div>
   </div>
   <!-- 回到顶部 -->

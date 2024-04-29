@@ -27,6 +27,7 @@ const props = defineProps({
 <style scoped>
 .context h4 {
   margin: 24px 0 12px;
+  color: green;
 }
 .context p {
   text-indent: 2em;

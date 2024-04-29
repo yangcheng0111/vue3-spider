@@ -3,11 +3,16 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const activeIndex = ref('/index')
+const show = ref(true)
 
-// 刷新页面检测路由选中项目
+// 刷新页面加载
 const updateRoute = () => {
   const router = useRouter()
-  activeIndex.value = router.currentRoute._value.fullPath
+  const href = router.currentRoute._value.fullPath
+  // 如果是详情页则不需要渲染
+  show.value = !href.includes('/details')
+  // 选中项加载
+  activeIndex.value = href
 }
 updateRoute()
 
@@ -16,7 +21,7 @@ const handleSelect = (key) => {
 }
 </script>
 <template>
-  <div class="header">
+  <div class="header" v-if="show">
     <div class="wrapper">
       <el-menu
         :default-active="activeIndex"

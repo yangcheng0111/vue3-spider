@@ -1,8 +1,12 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  title: { type: String }
+})
+</script>
 
 <template>
   <h4>
-    书籍推荐
+    {{ props.title }}推荐
     <span class="small">随机显示· · · · · · </span>
   </h4>
   <ul>
@@ -20,6 +24,7 @@
 <style scoped>
 .right h4 {
   margin-bottom: 10px;
+  color: green;
 }
 .right h4 span {
   color: #666;

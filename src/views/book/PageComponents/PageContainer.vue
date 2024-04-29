@@ -2,9 +2,9 @@
 import { ref } from 'vue'
 import Star from '@/components/Star.vue'
 
-const count = ref(0)
+const count = ref(5)
 const load = () => {
-  count.value += 1
+  count.value += 5
   if (count.value === 20) {
     loading.value = false
   }
@@ -15,7 +15,11 @@ const loading = ref(true)
 <template>
   <div class="body">
     <ul v-infinite-scroll="load" :infinite-scroll-disabled="!loading">
-      <li v-for="item in count" :key="item">
+      <li
+        v-for="item in count"
+        :key="item"
+        @click="$router.push('/book/details')"
+      >
         <div class="lf">
           <img
             src="https://img3.doubanio.com/view/subject/s/public/s34790242.jpg"
@@ -23,7 +27,7 @@ const loading = ref(true)
           />
         </div>
         <div class="rg">
-          <el-link href="#" type="primary">
+          <el-link type="primary">
             <h4>哈耶克论哈耶克：对谈式自传</h4>
           </el-link>
 

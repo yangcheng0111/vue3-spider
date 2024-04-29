@@ -3,37 +3,46 @@ import DataContent from './DataContent.vue'
 import RatingBox from '@/components/RatingBox.vue'
 import ContentIntroduction from './ContentIntroduction.vue'
 import PictureDisplay from './PictureDisplay.vue'
+import { useMovieStore } from '@/stores/index'
+
+const data = useMovieStore().movieData
 </script>
 <template>
   <div class="left">
     <h1>
-      <p>肖申克的救赎</p>
-      <span>The Shawshank Redemption </span><i>(2022)</i>
+      <p>{{ data.name }}</p>
+      <span>{{ data.alias }} </span><i>({{ data.year }})</i>
     </h1>
     <!-- 内容 -->
     <div class="info">
       <h2>
-        <img
-          src="https://img9.doubanio.com/view/photo/s_ratio_poster/public/p2906644236.webp"
-          alt=""
-        />
+        <img :src="data.imgUrl" />
       </h2>
       <DataContent></DataContent>
-      <RatingBox></RatingBox>
+      <RatingBox
+        :score="data.score"
+        :commentsNum="data.commentsNum"
+        title="电影"
+      ></RatingBox>
     </div>
 
     <!-- 剧情简介 -->
-    <ContentIntroduction title="肖申克的救赎"></ContentIntroduction>
+    <ContentIntroduction :title="data.name">{{
+      data.synopsis
+    }}</ContentIntroduction>
     <!-- 演员表 -->
-    <PictureDisplay title="肖申克的救赎"></PictureDisplay>
+    <PictureDisplay
+      :title="data.name + '的演职表'"
+      :characterList="data.characterList"
+    ></PictureDisplay>
   </div>
 </template>
 
 <style>
 .left {
   width: 680px;
-  height: 600px;
 }
+
 .left h1 {
   display: flex;
   margin-bottom: 12px;
