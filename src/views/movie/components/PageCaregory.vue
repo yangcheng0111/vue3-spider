@@ -118,7 +118,6 @@ p.active .iconfont {
 
 .bd ul {
   width: 100%;
-
   position: absolute;
   padding: 30px;
   display: flex;

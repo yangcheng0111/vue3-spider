@@ -77,24 +77,7 @@ import Star from '@/components/Star.vue'
           <h4>无间道</h4>
         </a>
       </li>
-      <!-- <el-skeleton animated="true" throttle="200" style="width: 240px">
-        <template #template>
-          <el-skeleton-item
-            variant="image"
-            style="width: 160px; height: 220px"
-          />
-
-          <el-skeleton-item
-            variant="text"
-            style="width: 160px; margin-top: 20px"
-          />
-          <br />
-          <el-skeleton-item
-            variant="text"
-            style="width: 160px; margin-top: 20px"
-          />
-        </template>
-      </el-skeleton> -->
+ 
     </ul>
   </div>
 </template>
@@ -105,6 +88,7 @@ import Star from '@/components/Star.vue'
 }
 
 ul {
+
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
@@ -112,6 +96,7 @@ ul {
   column-gap: 48px;
 }
 ul li {
+  
   margin-top: 10px;
 }
 ul li a {

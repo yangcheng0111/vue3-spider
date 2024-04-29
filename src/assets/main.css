@@ -3,18 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    font-size: 16px;
-
 }
 body{
   background-color: rgb(249,246,245);
-}
+  font-size: 16px;
 
-/* 版心 */
-.wrapper {
-    width: 1200px;
-    margin: 0 auto;
-  }
+}
 
   ul{
     list-style: none;
@@ -35,10 +29,19 @@ body{
   }
 
   /* 功能性样式 */
+  /* 版心 */
+  .wrapper {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  
+  /* 小型字体 */
   .small{
     font-size: 13px;
   }
   
+  /* 暗阶 */
   .DarkStage:hover{
     transition: all 0.75s;
     transform: scale(1.001);
