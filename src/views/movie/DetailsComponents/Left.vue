@@ -6,6 +6,7 @@ import PictureDisplay from './PictureDisplay.vue'
 import { useMovieStore } from '@/stores/index'
 
 const data = useMovieStore().movieData
+
 </script>
 <template>
   <div class="left">

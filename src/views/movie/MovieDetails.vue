@@ -5,11 +5,10 @@ import { useMovieStore } from '@/stores/index'
 // 获取数据
 const MovieStore = useMovieStore()
 MovieStore.getMovieData(1)
-const data = useMovieStore().movieData
 </script>
 <template>
   <div class="wrapper">
-    <Left v-if="data.name"></Left>
+    <Left></Left>
 
     <div class="right">
       <Aside title="电影"></Aside>

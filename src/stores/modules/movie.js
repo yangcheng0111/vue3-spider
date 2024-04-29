@@ -18,6 +18,8 @@ export const useMovieStore = defineStore(
     }
   },
   {
-    persist: true
+    persist: {
+      storage: sessionStorage
+    }
   }
 )
