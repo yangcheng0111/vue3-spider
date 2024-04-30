@@ -1,40 +1,42 @@
 <script setup>
+import { storeToRefs } from 'pinia'
+
 import DataContent from './DataContent.vue'
 import RatingBox from '@/components/RatingBox.vue'
 import ContentIntroduction from './ContentIntroduction.vue'
 import PictureDisplay from './PictureDisplay.vue'
 import { useMovieStore } from '@/stores/index'
 
-const data = useMovieStore().movieData
-
+const movieStore = useMovieStore()
+const { movieData } = storeToRefs(movieStore)
 </script>
 <template>
   <div class="left">
     <h1>
-      <p>{{ data.name }}</p>
-      <span>{{ data.alias }} </span><i>({{ data.year }})</i>
+      <p>{{ movieData.name }}</p>
+      <span>{{ movieData.alias }} </span><i>({{ movieData.year }})</i>
     </h1>
     <!-- 内容 -->
     <div class="info">
       <h2>
-        <img :src="data.imgUrl" />
+        <img :src="movieData.imgUrl" />
       </h2>
       <DataContent></DataContent>
       <RatingBox
-        :score="data.score"
-        :commentsNum="data.commentsNum"
+        :score="movieData.score"
+        :commentsNum="movieData.commentsNum"
         title="电影"
       ></RatingBox>
     </div>
 
     <!-- 剧情简介 -->
-    <ContentIntroduction :title="data.name">{{
-      data.synopsis
+    <ContentIntroduction :title="movieData.name">{{
+      movieData.synopsis
     }}</ContentIntroduction>
     <!-- 演员表 -->
     <PictureDisplay
-      :title="data.name + '的演职表'"
-      :characterList="data.characterList"
+      :title="movieData.name + '的演职表'"
+      :characterList="movieData.characterList"
     ></PictureDisplay>
   </div>
 </template>

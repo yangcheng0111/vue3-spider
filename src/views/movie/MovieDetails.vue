@@ -8,7 +8,7 @@ MovieStore.getMovieData(1)
 </script>
 <template>
   <div class="wrapper">
-    <Left></Left>
+    <Left v-if="MovieStore.movieData.name"></Left>
 
     <div class="right">
       <Aside title="电影"></Aside>
