@@ -14,7 +14,11 @@ const loading = ref(true)
 
 <template>
   <div class="body">
-    <ul v-infinite-scroll="load" :infinite-scroll-disabled="!loading">
+    <ul
+      v-auto-animate
+      v-infinite-scroll="load"
+      :infinite-scroll-disabled="!loading"
+    >
       <li
         v-for="item in count"
         :key="item"

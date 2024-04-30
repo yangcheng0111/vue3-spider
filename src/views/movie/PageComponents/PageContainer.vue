@@ -4,7 +4,7 @@ import Star from '@/components/Star.vue'
 
 <template>
   <div class="body wrapper">
-    <ul>
+    <ul v-auto-animate>
       <li v-for="item in 10" :key="item">
         <a @click="$router.push('/movie/details')">
           <h1>
