@@ -12,7 +12,7 @@ export const userMoviePageService = (data) => {
  *test
  */
 export const userMovieDetailsService = (id) => {
-  console.log('电影id', id)
+  console.log('电影id查询接口', id)
   return {
     code: 1,
     msg: null,

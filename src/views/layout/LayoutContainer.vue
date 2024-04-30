@@ -10,3 +10,5 @@ import Foonter from './components/Foonter.vue'
   <router-view> </router-view>
   <Foonter></Foonter>
 </template>
+
+<style></style>

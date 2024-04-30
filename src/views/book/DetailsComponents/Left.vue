@@ -1,34 +1,51 @@
 <script setup>
+import { storeToRefs } from 'pinia'
+
 import DataContent from './DataContent.vue'
 import RatingBox from '@/components/RatingBox.vue'
-import ContentIntroduction from './ContentIntroduction.vue'
-import PictureDisplay from './PictureDisplay.vue'
+import ContentIntroduction from '@/components/ContentIntroduction.vue'
+import PictureDisplay from '@/components/PictureDisplay.vue'
+import { useBookStore } from '@/stores/index'
+const BookStore = useBookStore()
+const { bookData } = storeToRefs(BookStore)
 </script>
 <template>
   <div class="left">
     <h1>
-      <p>小小小小的人间</p>
+      <p>{{ bookData.name }}</p>
     </h1>
     <!-- 内容 -->
     <div class="info">
       <h2>
-        <img
-          src="https://img1.doubanio.com/view/subject/s/public/s34799730.jpg"
-          alt=""
-        />
+        <img src="" v-img-lazy="bookData.imgUrl" alt="" />
       </h2>
       <DataContent></DataContent>
-      <RatingBox></RatingBox>
+      <RatingBox :score="bookData.score"></RatingBox>
     </div>
 
     <!-- 剧情简介 -->
-    <ContentIntroduction title="小小小小的人间"></ContentIntroduction>
-    <!-- 演员表 -->
-    <PictureDisplay title="小小小小的人间"></PictureDisplay>
+    <ContentIntroduction :title="bookData.name + '的内容简介'">
+      {{ bookData.introduction }}
+    </ContentIntroduction>
+    <!-- 创作者 -->
+    <PictureDisplay :title="bookData.name + '的创作者'">
+      <ul>
+        <li>
+          <img :src="bookData.authorImage" alt="" />
+          <span>{{ bookData.author.split(']')[1] }}</span>
+          <p>{{ bookData.role }}</p>
+        </li>
+      </ul>
+    </PictureDisplay>
+
+    <!-- 作者简介 -->
+    <ContentIntroduction title="作者简介">
+      {{ bookData.author_introduction || '无' }}
+    </ContentIntroduction>
   </div>
 </template>
 
-<style>
+<style scoped>
 .left {
   width: 680px;
   height: 600px;

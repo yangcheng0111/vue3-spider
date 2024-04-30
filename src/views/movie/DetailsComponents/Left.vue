@@ -3,8 +3,8 @@ import { storeToRefs } from 'pinia'
 
 import DataContent from './DataContent.vue'
 import RatingBox from '@/components/RatingBox.vue'
-import ContentIntroduction from './ContentIntroduction.vue'
-import PictureDisplay from './PictureDisplay.vue'
+import ContentIntroduction from '@/components/ContentIntroduction.vue'
+import PictureDisplay from '@/components/PictureDisplay.vue'
 import { useMovieStore } from '@/stores/index'
 
 const movieStore = useMovieStore()
@@ -34,10 +34,15 @@ const { movieData } = storeToRefs(movieStore)
       movieData.synopsis
     }}</ContentIntroduction>
     <!-- 演员表 -->
-    <PictureDisplay
-      :title="movieData.name + '的演职表'"
-      :characterList="movieData.characterList"
-    ></PictureDisplay>
+    <PictureDisplay :title="movieData.name + '的演职表'">
+      <ul>
+        <li v-for="item in movieData.characterList" :key="item.id">
+          <img :src="item.imgUrl" alt="" />
+          <span>{{ item.name }}</span>
+          <p>{{ item.role }}</p>
+        </li>
+      </ul>
+    </PictureDisplay>
   </div>
 </template>
 

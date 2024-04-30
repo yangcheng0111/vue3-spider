@@ -7,23 +7,17 @@ const props = defineProps({
 <template>
   <div class="imagelist">
     <h4>
-      <span>{{ props.title }}</span
-      >的演职表
+      <span>{{ props.title }}</span>
     </h4>
-    <ul>
-      <li v-for="item in 6" :key="item">
-        <img
-          src="https://img1.doubanio.com/view/celebrity/m/public/p230.webp"
-          alt=""
-        />
-        <span>xxxxxxxxxxxxxxxxxxxx</span>
-        <p>导演xxxxxxxxxxxxxxxxx</p>
-      </li>
-    </ul>
+    <!-- 数据填充部分 -->
+    <slot></slot>
   </div>
 </template>
 
-<style scoped>
+<style>
+.imagelist {
+  margin-bottom: 30px;
+}
 .imagelist h4 {
   margin: 24px 0 12px;
   color: green;
